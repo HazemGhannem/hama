@@ -1,0 +1,58 @@
+{{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+   
+<div class="col-md-12">
+    <!-- jquery validation -->
+    <div class="card ">
+      <div class="card-header">
+        <h3 class="card-title" style="font-family: Lucida Handwriting;color:#8E0808"></h3>
+        {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+
+      </div>
+      <!-- /.card-header -->
+      <!-- form start -->
+    
+
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Rating</label>
+              {{ form_widget(form.rating, {'attr':{'class':'form-control'}})}}
+               {{ form_errors(form.rating,{'attr':{'class':'text-danger'}})}}
+          </div>
+
+             
+             
+
+            <div class="form-group">
+            <label for="exampleInputPassword1">Utilisteur</label>
+              {{ form_widget(form.idUser, {'attr':{'class':'form-control'}})}}
+               {{ form_errors(form.idUser,{'attr':{'class':'text-danger'}})}}
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Description</label>
+              {{ form_widget(form.descriptionavis, {'attr':{'class':'form-control'}})}}
+               {{ form_errors(form.descriptionavis,{'attr':{'class':'text-danger'}})}}
+          </div>
+            
+            
+
+
+         
+        <!-- /.card-body -->
+        <div class="card-footer">
+       
+           {{ form_widget(form) }}
+<button class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+         
+        </div>
+ 
+
+    </div>
+    <!-- /.card -->
+
+
+
+    
+    </div>
+
+{{ form_end(form) }}

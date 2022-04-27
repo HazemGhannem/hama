@@ -1,0 +1,58 @@
+
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="mr-auto p-2">
+								<h1>Reclamation
+								</h1>
+							</div>
+
+							<div class="p-2">
+								{{ include('reclamationAdmin/delete_form.html.twig') }}
+							</div>
+						</div>
+						<table class="table">
+							<tbody>
+                
+                        <tr>
+                            <th>Date</th>
+                            <td>{{ reclamation.datereclamtion ? reclamation.datereclamtion|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ reclamation.descriptionreclamtion }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td><img src="{{ asset('uploads/' ~ reclamation.imagereclamtion ) }}" alt="" width="100" height="100"></td>
+                            
+                        </tr>
+                        <tr>
+                            <th>Etat</th>
+                            <td>{{ reclamation.etatreclamtion }}</td>
+                        </tr>
+                        <tr>
+                            <th>utilisateur</th>
+                            <td>{{ reclamation.idUser }}</td>
+                        </tr>
+                    </tbody>
+						</table>
+
+						<a class="btn btn-secondary" href="{{ path('Admin_reclamation_index') }}">back to list</a>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

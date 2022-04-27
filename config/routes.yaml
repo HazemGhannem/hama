@@ -1,0 +1,3 @@
+index:
+  path: /message/chatbot
+  controller: App\Controller\BobotController::messageAction

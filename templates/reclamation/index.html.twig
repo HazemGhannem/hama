@@ -1,0 +1,145 @@
+{% extends 'front_base.html.twig' %}
+
+{% block main %}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-archive"></i>
+            Reclamation
+        </h1>
+
+
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="">Reclamation</a>
+        </li>
+    </ul>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="tile-body">
+                <div class="table-responsive">
+                    <div class="d-flex">
+                        <div class="p-2">
+                            <h1>Reclamation
+                            </h1>
+                            
+                        </div>
+
+                        <div class="ml-auto p-2">
+                            <a class="btn btn-outline-danger " href="{{ path('app_reclamation_new') }}"> Ajouter</a>
+                        </div>
+                    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#sampleTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style> 
+<input id="myInput" type="text" placeholder="Recherche..">
+<br><br>
+
+
+                    <table class="table table-hover table-bordered" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Etat</th>
+                                <th>Utilisateur</th>
+                                <th style="text-align : center">actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                            {% for reclamation in reclamations %}
+                            <tr>
+                <td>{{ reclamation.datereclamtion ? reclamation.datereclamtion|date('Y-m-d') : '' }}</td>
+                <td>{{ reclamation.descriptionreclamtion }}</td>
+                <td><img src="{{ asset('uploads/' ~ reclamation.Imagereclamtion) }}" alt="" width="100" height="100"></td>
+                <td>{{ reclamation.etatreclamtion }}</td>
+                <td>{{ reclamation.idUser }}</td>
+                <td style="text-align : center">
+                        <a class="btn btn-secondary" href="{{ path('app_reclamation_show', {'idreclamation': reclamation.idreclamation}) }}">Afficher</a>
+                        <a class=" btn btn-primary" href="{{ path('app_reclamation_edit', {'idreclamation': reclamation.idreclamation}) }}">Modifier</a>
+                        <a class="btn btn-outline-danger" href="{{ path('app_reclamation_delete', {'idreclamation': reclamation.idreclamation}) }}">Supprimer</a>
+                        
+            </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+            {% endfor %}
+            
+            </tbody>
+            </table>
+            {{ knp_pagination_render(reclamations) }}
+
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            	{# <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+ var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+ (function(){
+ var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+ s1.async=true;
+ s1.src='https://embed.tawk.to/6262fd567b967b11798c0cfb/1g19ar7a8';
+ s1.charset='UTF-8';
+ s1.setAttribute('crossorigin','*');
+ s0.parentNode.insertBefore(s1,s0);
+ })();
+ </script>
+  <!--End of Tawk.to Script--> #}
+  <!-- chatbot-->
+    <script>
+        var botmanWidget = {
+            frameEndpoint: '{{ path("chatframe") }}',
+            chatServer: '{{ path("message") }}',
+            introMessage: 'Hello,You Can Ask Me Any Thing ',
+            title: 'Chatbot',
+            mainColor: '#EABB28',
+            bubbleBackground: '#850DEA',
+            aboutText: ''
+        };
+    </script>
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+    <!-- chatbot-->
+            
+            
+            {% endblock %}
+
+
+

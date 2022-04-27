@@ -1,0 +1,74 @@
+
+
+{{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+    <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card ">
+              <div class="card-header">
+                <h3 class="card-title" style="font-family: Lucida Handwriting;color:#8E0808"></h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+            
+             
+        
+   
+                  <label>Date:</label>
+                   
+                      
+                         {{ form_widget(form.datereclamtion, {'attr':{'class':'form-control-border'}})}}
+                        {{ form_errors(form.datereclamtion,{'attr':{'class':'text-danger'}})}}
+                       
+                      
+              
+
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                      {{ form_widget(form.descriptionreclamtion, {'attr':{'class':'form-control'}})}}
+                       {{ form_errors(form.descriptionreclamtion,{'attr':{'class':'text-danger'}})}}
+                  </div>
+
+                       
+                    <div>
+                      	{{ form_label(form.imagereclamtion,"Image : ") }}
+		                  	{{ form_widget(form.imagereclamtion) }}
+                    
+
+                     <div class="form-group">
+                    <label for="exampleInputPassword1">Utilisteur</label>
+                      {{ form_widget(form.idUser, {'attr':{'class':'form-control'}})}}
+                       {{ form_errors(form.idUser,{'attr':{'class':'text-danger'}})}}
+                  </div>
+
+                    
+                    
+
+
+                 
+                <!-- /.card-body -->
+                <div class="card-footer">
+               
+                   {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+                 
+                </div>
+         
+
+            </div>
+            <!-- /.card -->
+
+
+ 
+            
+            </div>
+
+
+
+
+
+{{ form_end(form) }}
+
+
+
+

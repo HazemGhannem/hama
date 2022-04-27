@@ -1,0 +1,91 @@
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-tasks"></i>
+				Utilisateur</h1>
+			<p>Utilisateur Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/utilisateur">Utilisateur</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="p-2">
+								<h1>Utilisateur
+								</h1>
+							</div>
+
+							<div class="ml-auto p-2">
+								<a class="btn btn-outline-danger " href="{{ path('app_utilisateur_new') }}">Create new</a>
+							</div>
+						</div>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<thead>
+								<tr>
+									<th>Image</th>
+                                    <th>Id</th> 
+									<th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Email</th>
+									<th>Tel</th>
+									<th>Role</th>
+
+									<th style="text-align : center">actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for utilisateur in utilisateur %}
+									<tr>
+										<td><img src="{{ asset('uploads/' ~ utilisateur.image) }}" alt="" width="100" height="100"></td>
+										<td>{{ utilisateur.id }}</td>
+                                        <td>{{ utilisateur.nom }}</td>
+                                        <td>{{ utilisateur.prenom }}</td>
+                                        <td>{{ utilisateur.email }}</td>
+										<td>{{ utilisateur.tel }}</td>
+										<td>{{ utilisateur.role }}</td>
+										
+
+										<td style="text-align : center">
+										    {% if utilisateur.bloquer==0 %}
+                                            <a class="btn btn-outline-danger btn-fw" href="{{ path('app_utilisateur_bloquer', {'id': utilisateur.id}) }}">Bloquer</a>
+                                            {% else %}
+                                            <a class="btn btn-outline-success btn-fw" href="{{ path('app_utilisateur_debloquer', {'id': utilisateur.id}) }}">Débloquer</a>
+                                                {% endif %}
+											<a class="btn btn-outline-success " href=" {{ path('app_utilisateur_show', {'id': utilisateur.id} ) }}">show</a>
+											<a class="btn btn-outline-warning " href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="8">no records found</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

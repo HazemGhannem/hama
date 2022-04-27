@@ -1,0 +1,40 @@
+
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+<div class="row">
+	<div class="col-lg-4   offset-lg-1 ">
+		<div style="padding : 7px;margin-right:30%">
+			{{ form_label(form.date,"Date : ") }}
+		  {{ form_widget(form.date , {'attr':{'class':'form-control-border'}})}}
+      </div>
+		<div style="padding : 7px;margin-right:30%">{{ form_label(form.heuredeb,"Du : ") }}
+			{{ form_widget(form.heuredeb) }}</div>
+		<div style="padding : 7px;margin-right:30%"> 
+			{{ form_label(form.heurefin,"Au : ") }}
+			{{ form_widget(form.heurefin) }}
+		</div>
+	</div>
+
+	<div class="col-lg-5  offset-lg-1">
+		<div style="padding : 7px">
+			{{ form_label(form.prixresserv,"Prix : ") }}
+			  {{ form_widget(form.prixresserv, {'attr':{'class':'form-control-border'}})}}
+		</div>
+		<div style="padding : 7px">{{ form_label(form.etat,"Payer ? ") }}
+		  {{ form_widget(form.etat, {'attr':{'class':'form-control'}})}}</div>
+		<div style="padding : 7px">
+			{{ form_label(form.iduser,"Client ? : ") }}
+		  {{ form_widget(form.iduser, {'attr':{'class':'form-control-border'}})}}
+		</div>
+
+    	<div style="padding : 7px">
+			{{ form_label(form.iduser,"Service ? : ") }}
+		   {{ form_widget(form.idservice, {'attr':{'class':'form-control-border'}})}}
+		</div>
+
+
+	</div>
+</div>
+
+<button class="btn btn-warning">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(form) }}
+

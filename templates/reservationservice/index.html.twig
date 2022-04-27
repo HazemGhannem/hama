@@ -1,0 +1,128 @@
+
+
+
+
+
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-archive"></i>
+				Reservation des Services</h1>
+			<p>Reservation Services Dashboard</p> 
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="">Services</a>
+			</li>
+		</ul>
+
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="p-2">
+								<h1>Reservation des services
+								</h1>
+							</div>
+			
+				<div class="container">
+				{{form_start(form)}}
+				<div class="form-row">
+					<div class="col">
+						{{form_row(form.maxPrice)}}
+						</div>
+					<div class="col">
+						{{form_row(form.dates)}}
+						</div>
+						<div class="col">
+						{{form_row(form.etatPayer)}}
+						</div>
+						<div class="col">
+						<button class="btn btn-primary">Rechercher</button>
+						</div>
+						</div>
+							{{form_end(form)}}
+							</div>
+						
+
+							<div class="ml-auto p-2">
+								<a class="btn btn-outline-success " href="{{ path('app_reservationservice_new') }}">Ajouter</a>
+							</div>
+						</div>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<thead>
+								<tr>
+								 <th>Date</th>
+          
+                <th>Prix</th>
+                <th>Service</th>
+                <th>Image</th>
+            
+
+                <th>Etat</th>
+
+
+									<th style="text-align : center">actions</th>
+								</tr>
+							</thead>
+							<tbody>
+							 {% for reservationservice in reservationservices %}
+									<tr>
+                   <td>{{ reservationservice.date | date }}</td>
+              
+                <td>{{ reservationservice.prixresserv }}</td>
+                 <td>{{ reservationservice.idservice.nom }}</td>
+										<td><img src="{{ asset('uploads/' ~ reservationservice.idservice.image) }}" alt="" width="100" height="100"></td>
+									
+
+									 <td style="margin-left:50%">
+                         {% if (reservationservice.etat == 'Yes')  %}
+                        <button type="button" class="btn btn-block btn-outline-success disabled">Payer</button>
+                        {%  else  %}
+                       <button type="button" class="btn btn-block btn-outline-danger disabled">Non Payer</button>
+                     {% endif %} 
+                  </td>
+
+										<td style="text-align : center">
+											<a class="btn btn-outline-info " href="{{ path('app_reservationservice_show', {'id': reservationservice.id}) }}">Details</a>
+											<a class="btn btn-outline-warning " href="{{ path('app_reservationservice_edit', {'id': reservationservice.id}) }}">Modifier</a>
+									    {{ include('reservationservice/_delete_form.html.twig') }}
+                  	</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="7">no records found</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

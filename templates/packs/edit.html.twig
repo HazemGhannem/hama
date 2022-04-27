@@ -1,0 +1,39 @@
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-archive"></i>
+				Packs</h1>
+			<p>Packs Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/packs/">Packs</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="row" style="text-align :center">
+		<div class="col-md-12">
+			<div class="tile">
+				<h1>Edit Packs</h1>
+
+
+				{{ include('packs/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

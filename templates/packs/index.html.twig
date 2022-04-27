@@ -1,0 +1,81 @@
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-archive"></i>
+				Packs</h1>
+			<p>Packs Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="">Packs</a>
+			</li>
+		</ul>
+
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="p-2">
+								<h1>Packs
+								</h1>
+							</div>
+
+							<div class="ml-auto p-2">
+								<a class="btn btn-outline-danger " href="{{ path('app_packs_new') }}">Create new</a>
+							</div>
+						</div>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th>Nom</th>
+									<th>Description</th>
+									<th>Prix</th>
+
+
+									<th style="text-align : center">actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for pack in packs %}
+									<tr>
+										<td><img src="{{ asset('uploads/' ~ pack.image) }}" alt="" width="100" height="100"></td>
+										<td>{{ pack.nom }}</td>
+										<td>{{ pack.description }}</td>
+										<td>{{ pack.prix }}</td>
+
+
+										<td style="text-align : center">
+											<a class="btn btn-outline-success " href="{{ path('app_packs_show', {'id': pack.id}) }}">show</a>
+											<a class="btn btn-outline-warning " href="{{ path('app_packs_edit', {'id': pack.id}) }}">edit</a>
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="7">no records found</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

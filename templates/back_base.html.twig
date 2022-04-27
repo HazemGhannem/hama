@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				She said Yes
+			{% endblock %}
+		</title>
+
+		{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
+
+			<!-- Google Fonts -->
+			<!-- Favicons -->
+
+			<link href="{{ asset('img/home/fav.png') }} " rel="icon"> <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+			<link rel="stylesheet" href="{{asset('css/pres.css')}}">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+		{% endblock %}
+
+
+	</head>
+	<body class="app sidebar-mini">
+		{% block body %}
+
+			<div class="preloader fixed-top ">
+				<div class="alllove">
+					<span class="love love1 fa fa-heart fa-lg"></span>
+					<span class="love love3 fa fa-heart fa-lg"></span>
+					<span class="love love2 glyphicon_loading ">Loading</span>
+					<span class="love love4 fa fa-heart fa-lg"></span>
+					<span class="love love5 fa fa-heart fa-lg"></span>
+
+				</div>
+			</div>
+
+
+		{% endblock %}
+		<!-- Navbar-->
+		<header class="app-header">
+			<div class="logo ">
+
+				<a class="app-header__logo" href="{{path('app_prestataire')}}"><img src="{{asset('img/home/logo0.png')}}" alt="" class="img-fluid img_size"></a>
+
+				<!-- Uncomment below if you prefer to use an image logo -->
+				<!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+			</div>
+
+			<!-- Sidebar toggle button-->
+			<a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+			<!-- Navbar Right Menu-->
+			<ul class="app-nav">
+				<li class="app-search">
+					<input class="app-search__input" type="search" placeholder="Search">
+					<button class="app-search__button">
+						<i class="fa fa-search"></i>
+					</button>
+				</li>
+				<!--Notification Menu-->
+				<li class="dropdown">
+					<a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications">
+						<i class="fa fa-bell-o fa-lg"></i>
+					</a>
+					<ul class="app-notification dropdown-menu dropdown-menu-right">
+						<li class="app-notification__title">You have 4 new notifications.</li>
+						<div class="app-notification__content">
+							<li>
+								<a class="app-notification__item" href="javascript:;">
+									<span class="app-notification__icon">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x text-primary"></i>
+											<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+										</span>
+									</span>
+									<div>
+										<p class="app-notification__message">Lisa sent you a mail</p>
+										<p class="app-notification__meta">2 min ago</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="app-notification__item" href="javascript:;">
+									<span class="app-notification__icon">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x text-danger"></i>
+											<i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i>
+										</span>
+									</span>
+									<div>
+										<p class="app-notification__message">Mail server not working</p>
+										<p class="app-notification__meta">5 min ago</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a class="app-notification__item" href="javascript:;">
+									<span class="app-notification__icon">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x text-success"></i>
+											<i class="fa fa-money fa-stack-1x fa-inverse"></i>
+										</span>
+									</span>
+									<div>
+										<p class="app-notification__message">Transaction complete</p>
+										<p class="app-notification__meta">2 days ago</p>
+									</div>
+								</a>
+							</li>
+							<div class="app-notification__content">
+								<li>
+									<a class="app-notification__item" href="javascript:;">
+										<span class="app-notification__icon">
+											<span class="fa-stack fa-lg">
+												<i class="fa fa-circle fa-stack-2x text-primary"></i>
+												<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+											</span>
+										</span>
+										<div>
+											<p class="app-notification__message">Lisa sent you a mail</p>
+											<p class="app-notification__meta">2 min ago</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a class="app-notification__item" href="javascript:;">
+										<span class="app-notification__icon">
+											<span class="fa-stack fa-lg">
+												<i class="fa fa-circle fa-stack-2x text-danger"></i>
+												<i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i>
+											</span>
+										</span>
+										<div>
+											<p class="app-notification__message">Mail server not working</p>
+											<p class="app-notification__meta">5 min ago</p>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a class="app-notification__item" href="javascript:;">
+										<span class="app-notification__icon">
+											<span class="fa-stack fa-lg">
+												<i class="fa fa-circle fa-stack-2x text-success"></i>
+												<i class="fa fa-money fa-stack-1x fa-inverse"></i>
+											</span>
+										</span>
+										<div>
+											<p class="app-notification__message">Transaction complete</p>
+											<p class="app-notification__meta">2 dadddys ago</p>
+										</div>
+									</a>
+								</li>
+							</div>
+						</div>
+						<li class="app-notification__footer">
+							<a href="#">See all notifications.</a>
+						</li>
+					</ul>
+				</li>
+				<!-- User Menu-->
+				<li class="dropdown">
+					<a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">
+						<i class="fa fa-user fa-lg"></i>
+					</a>
+					<ul class="dropdown-menu settings-menu dropdown-menu-right">
+						<li>
+							<a class="dropdown-item" href="page-user.html">
+								<i class="fa fa-cog fa-lg"></i>
+								Settings</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="page-user.html">
+								<i class="fa fa-user fa-lg"></i>
+								Profile</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="page-login.html">
+								<i class="fa fa-sign-out fa-lg"></i>
+								Logout</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</header>
+		<!-- Sidebar menu-->
+		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+		<aside class="app-sidebar">
+			<div class="app-sidebar__user">
+				<div>
+				<a class="btn btn-secondary" href="{{ path('reponse_list') }}">Response</a>
+				<br>
+				<a class="btn btn-secondary" href="{{ path('reclamation_index') }}">Reclamation</a>
+				<br>
+				<a class="btn btn-secondary" href="{{ path('stats') }}">Stats</a>
+				
+				</div>
+			</div>
+			{% set currentPath = path(app.request.attributes.get('_route'),  app.request.attributes.get('_route_params')) %}
+
+
+			{% if "/prestataire" in currentPath   %}
+
+				<ul class="app-menu">
+					<li>
+						<a class="app-menu__item active" href="{{path('app_prestataire')}}">
+							<i class="app-menu__icon fa fa-dashboard"></i>
+							<span class="app-menu__label">Dashboard</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item " href="/packs">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Packs</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item" href="/services/">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item   " href="/reservationservice">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Reservation service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/reservationpack">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Reservation pack</span>
+						</a>
+					</li>
+
+				
+
+				</ul>
+			{% endif %}
+			{% if "packs/" in currentPath   %}
+
+				<ul class="app-menu">
+					<li>
+						<a class="app-menu__item " href="{{path('app_prestataire')}}">
+							<i class="app-menu__icon fa fa-dashboard"></i>
+							<span class="app-menu__label">Dashboard</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item  active " href="/packs">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Packs</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item" href="/services">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item   " href="/reservationservice">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Reservation service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/reservationpack">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Reservation pack</span>
+						</a>
+					</li>
+
+				</ul>
+			{% endif %}
+
+			{% if "/services/"  in  currentPath  %}
+
+				<ul class="app-menu">
+					<li>
+						<a class="app-menu__item " href="{{path('app_prestataire')}}">
+							<i class="app-menu__icon fa fa-dashboard"></i>
+							<span class="app-menu__label">Dashboard</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item   " href="/packs">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Packs</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/services">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item   " href="/reservationservice">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Reservation service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/reservationpack">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Reservation pack</span>
+						</a>
+					</li>
+
+				</ul>
+			{% endif %}
+
+
+				{% if "/reservationservice/"  in  currentPath  %}
+
+				<ul class="app-menu">
+					<li>
+						<a class="app-menu__item " href="{{path('app_prestataire')}}">
+							<i class="app-menu__icon fa fa-dashboard"></i>
+							<span class="app-menu__label">Dashboard</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item   " href="/packs">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Packs</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/services">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Service</span>
+						</a>
+					</li>
+					<li>
+						<a class="app-menu__item   " href="/reservationservice">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Reservation service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/reservationpack">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Reservation pack</span>
+						</a>
+					</li>
+
+				</ul>
+			{% endif %}
+
+
+			
+				{% if "/reservationpack/"  in  currentPath  %}
+
+				<ul class="app-menu">
+					<li>
+						<a class="app-menu__item " href="{{path('app_prestataire')}}">
+							<i class="app-menu__icon fa fa-dashboard"></i>
+							<span class="app-menu__label">Dashboard</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item   " href="/packs">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Packs</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/services">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Service</span>
+						</a>
+					</li>
+					<li>
+						<a class="app-menu__item   " href="/reservationservice">
+							<i class="app-menu__icon fa fa-archive"></i>
+							<span class="app-menu__label">Reservation service</span>
+						</a>
+					</li>
+
+					<li>
+						<a class="app-menu__item active " href="/reservationpack">
+							<i class="app-menu__icon fa fa-tasks"></i>
+							<span class="app-menu__label">Reservation pack</span>
+						</a>
+					</li>
+
+				</ul>
+			{% endif %}
+		</aside>
+		<main class="app-content"> {% block main %}{% endblock %}
+			</main>
+
+
+			{% block javascripts %}
+			  {{ encore_entry_script_tags('app') }}
+				<!-- Vendor JS Files -->
+				<script src="{{ asset('js/jquery-3.3.1.min.js') }} "></script>
+				<script src="{{ asset('js/popper.min.js') }} "></script>
+				<script src="{{ asset('js/bootstrap.min.js') }} "></script>
+				<script src="{{ asset('js/main2.js') }} "></script>
+				<script src="//code.jquery.com/jquery.js"></script>
+				<script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
+				<!-- Page specific javascripts-->
+				<script type="text/javascript" src="{{ asset('js/chart.js') }} "></script>
+				
+				<!-- Google analytics script-->
+		
+				<script>
+					setTimeout(function () {$('.preloader').fadeToggle();}, 200);
+				</script>
+
+				<script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }} "></script>
+				<script type="text/javascript" src="{{ asset('js/dataTables.bootstrap.min.js') }} "></script>
+				<script type="text/javascript">
+					$('#sampleTable').DataTable();
+				</script>
+			{% endblock %}
+{{ include('@MercurySeriesFlashy/flashy.html.twig') }}
+		
+
+		</body>
+	</html>

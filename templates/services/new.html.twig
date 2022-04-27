@@ -1,0 +1,35 @@
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-tasks"></i>
+				Services</h1>
+			<p>Services Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/services/">Services</a>
+			</li>
+		</ul>
+
+	</div>
+	<div class="row" style="text-align :center">
+		<div class="col-md-12">
+			<div class="tile">
+				<h1>Create new Services</h1>
+
+
+				{{ include('services/_form.html.twig') }}
+
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

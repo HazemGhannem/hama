@@ -1,0 +1,37 @@
+{% extends 'back_base.html.twig' %}
+
+{% block title %}Statistics{% endblock %}
+
+
+
+
+{% block body %}
+<div class="container"> 
+    <h1>Statistics</h1>
+  <canvas id="reclamation"  class="chart-canvas" height="100"></canvas>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" 
+integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+let promotion = document.querySelector("#reclamation")
+    let annGraph = new Chart(reclamation, {
+        type: "pie",
+        data: {
+            labels: {{countdate1|raw}},
+            datasets: [{
+                label: "Reclamation",
+                data: {{count1|raw}},
+                backgroundColor: ['Yellow', 'Orange','Red', 'Pink','Blue ',  'Turquoise', 'Purple',  'Green',  'Black',  'White',  'Beige',  'Brown',  'Golden'],
+                
+            }]      
+        },  }); 
+</script>
+
+
+
+
+{% endblock %}

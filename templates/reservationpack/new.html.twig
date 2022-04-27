@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-tasks"></i>
+				Reservation des packs</h1>
+			<p>Reservation packs Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/reservationpack/">Reservations des packs</a>
+			</li>
+		</ul>
+ 
+	</div>
+	<div class="row" style="text-align :center">
+		<div class="col-md-12">
+			<div class="tile">
+				<h1>Ajouter une nouvelle Reservation</h1>
+
+
+			 {{ include('reservationpack/_form.html.twig') }}
+             </br>
+   <a href="{{ path('app_reservationpack_index') }}"  class="btn btn-sm btn-danger" style="margin-right:90%">Voir list</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

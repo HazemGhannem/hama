@@ -1,0 +1,36 @@
+
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-tasks"></i>
+				Reservation des Services</h1>
+			<p>Reservation Services Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/services/">Reservations des Services</a>
+			</li>
+		</ul>
+ 
+	</div>
+	<div class="row" style="text-align :center">
+		<div class="col-md-12">
+			<div class="tile">
+				<h1>Ajouter une nouvelle Reservation</h1>
+
+
+			 {{ include('reservationservice/_form.html.twig') }}
+             </br>
+   <a href="{{ path('app_reservationservice_index') }}"  class="btn btn-sm btn-danger" style="margin-right:90%">Voir list</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

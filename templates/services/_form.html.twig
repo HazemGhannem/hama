@@ -1,0 +1,34 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+<div class="row">
+	<div class="col-lg-4   offset-lg-1 ">
+		<div style="padding : 7px">
+			{{ form_label(form.nom,"Nom : ") }}
+			{{ form_widget(form.nom) }}</div>
+		<div style="padding : 7px">{{ form_label(form.description,"Description : ") }}
+			{{ form_widget(form.description) }}</div>
+		<div style="padding : 7px">
+			{{ form_label(form.prix,"Prix : ") }}
+			{{ form_widget(form.prix) }}
+		</div>
+
+
+	</div>
+
+	<div class="col-lg-5  offset-lg-1">
+		<div style="padding : 7px">
+			{{ form_label(form.image,"Image : ") }}
+			{{ form_widget(form.image) }}
+		</div>
+		<div style="padding : 7px">{{ form_label(form.categorie,"Categorie : ") }}
+			{{ form_widget(form.categorie) }}</div>
+		<div style="padding : 7px">
+			{{ form_label(form.idpack,"Idpack : ") }}
+			{{ form_widget(form.idpack) }}
+		</div>
+
+
+	</div>
+</div>
+<a class="btn btn-secondary" href="{{ path('app_services_index') }}">back to list</a>
+<button class="btn btn-success">{{ button_label|default('Create') }}</button>
+{{ form_end(form) }}

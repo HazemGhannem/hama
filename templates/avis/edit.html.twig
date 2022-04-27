@@ -1,0 +1,41 @@
+{% extends 'front_base.html.twig' %}
+
+
+{% block main %}
+
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-archive"></i>
+				Avis</h1>
+			<p>Avis Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/avis/">Avis</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="row" style="text-align :center">
+		<div class="col-md-12">
+			<div class="tile">
+				<h1>Modifier Avis</h1>
+
+
+				{{ include('avis/_form.html.twig', {'button_label': 'Update'})}}
+
+
+			</div>
+		</div>
+	</div>
+
+    <a class="btn btn-secondary" href="{{ path('app_avis_index') }}">back to list</a>
+
+
+{% endblock %}

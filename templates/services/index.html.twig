@@ -1,0 +1,85 @@
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-tasks"></i>
+				Services</h1>
+			<p>Services Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/services">Services</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="p-2">
+								<h1>Services
+								</h1>
+							</div>
+
+							<div class="ml-auto p-2">
+								<a class="btn btn-outline-danger " href="{{ path('app_services_new') }}">Create new</a>
+							</div>
+						</div>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th>Nom</th>
+									<th>Description</th>
+									<th>Prix</th>
+
+									<th>Categorie</th>
+									<th>Pack</th>
+
+									<th style="text-align : center">actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for service in services %}
+									<tr>
+										<td><img src="{{ asset('uploads/' ~ service.image) }}" alt="" width="100" height="100"></td>
+										<td>{{ service.nom }}</td>
+										<td>{{ service.description }}</td>
+										<td>{{ service.prix }}</td>
+
+										<td>{{ service.categorie }}</td>
+										<td>{{ service.idpack }}</td>
+
+										<td style="text-align : center">
+											<a class="btn btn-outline-success " href=" {{ path('app_services_show', {'id': service.id} ) }}">show</a>
+											<a class="btn btn-outline-warning " href="{{ path('app_services_edit', {'id': service.id}) }}">edit</a>
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="8">no records found</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

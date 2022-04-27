@@ -1,0 +1,30 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_start(form) }}
+<div class="row">
+	<div class="col-lg-4   offset-lg-1 ">
+		<div style="padding : 7px">
+			{{ form_label(form.nom,"Nom : ") }}
+			{{ form_widget(form.nom) }}</div>
+		<div style="padding : 7px">{{ form_label(form.description,"Description : ") }}
+			{{ form_widget(form.description) }}</div>
+
+
+	</div>
+
+	<div class="col-lg-5  offset-lg-1">
+
+		<div style="padding : 7px">
+			{{ form_label(form.image,"Image : ") }}
+			{{ form_widget(form.image) }}
+		</div>
+		<div style="padding : 7px">
+			{{ form_label(form.prix,"Prix : ") }}
+			{{ form_widget(form.prix) }}
+		</div>
+
+
+	</div>
+</div>
+<a class="btn btn-secondary" href="{{ path('app_packs_index') }}">back to list</a>
+<button class="btn btn-success">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

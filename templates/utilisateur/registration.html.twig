@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}Inscription | Connexion{% endblock %}</title>
+<head>
+{% block stylesheets %}
+
+ <link rel="stylesheet" href="{{asset("assets/css/auth.css")}}">
+ 
+{% endblock %}
+
+</head>
+
+<body>
+<img class = "img"src="{{asset("adminAssets/img/logo.gif")}}" alt="Logo" height="120" width="290">
+<div id="login-box">
+  <div class="left">
+    <h1>Inscription</h1>
+    
+
+{{ form_start(form, {'attr':{'novalidate':'novalidate'}}) }}
+
+{{  form_widget(form.nom , {'attr': {'placeholder': 'Nom d\'utilisateur '}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.nom) }}
+</div>
+
+{{ form_widget(form.prenom,{'attr':{'placeholder':'Prenom'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.prenom) }}
+</div>
+
+{{ form_widget(form.email,{'attr':{'placeholder':'Email'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.email) }}
+</div>
+
+
+{{ form_widget(form.tel,{'attr':{'placeholder':'Téléphone'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.tel) }}
+</div>
+
+
+{{ form_widget(form.password,{'attr':{'placeholder':'Mot de passe'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.password) }}
+</div>
+
+
+{{ form_widget(form.repeatpassword,{'attr':{'placeholder':'Répétez votre mot de passe'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.repeatpassword) }}
+</div>
+
+  {{  form_widget(form.role,{'attr':{'placeholder':'Vous etes'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.role) }}
+</div>
+
+  {{  form_widget(form.image,{'attr':{'placeholder':'Importez une image'}}) }}
+<div class="my-custom-class-for-errors">
+{{ form_errors(form.image) }}
+</div>
+
+
+ <input type="submit" name="signup_submit" value="S'inscrire" />
+
+{{form_end(form) }}
+    
+    
+   
+  </div>
+  
+  <div class="right">
+    <span class="loginwith">Sign in with<br />social network</span>
+    
+    <button class="social-signin facebook">Log in with facebook</button>
+    <button class="social-signin twitter">Log in with Twitter</button>
+    <button class="social-signin google">Log in with Google+</button>
+     {# <a href="{{path('app_login')}}" class="nav-link">j'ai un compte déjà</a> #}
+  </div>
+  <div class="or">OR</div>
+</div>
+
+
+
+
+
+
+{# {% block javascripts %}
+{% endblock %} #}
+
+
+
+</body>
+
+
+
+</html>

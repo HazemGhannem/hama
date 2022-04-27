@@ -1,0 +1,112 @@
+
+
+
+
+
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-archive"></i>
+				Reservation des Services</h1>
+			<p>Reservation Services Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="">Services</a>
+			</li>
+		</ul>
+
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="p-2">
+								<h1>Reservation des services
+								</h1>
+							</div>
+
+							<div class="ml-auto p-2">
+								<a class="btn btn-outline-success btn-lg " href="{{ path('app_reservationservice_new') }}">Ajouter</a>
+							</div>
+						</div>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<thead>
+								<tr>
+								 <th>Date</th>
+          
+                <th>Prix</th>
+                <th>Service</th>
+                <th>Image</th>
+            
+
+                <th>Etat</th>
+
+
+									<th style="text-align : center">actions</th>
+								</tr>
+							</thead>
+							<tbody>
+						 {% for reservationpack in reservationpacks %}
+									<tr>
+                   <td>{{ reservationpack.date | date }}</td>
+              
+                <td>{{ reservationpack.prixrespack}}</td>
+                 <td>{{ reservationpack.idpack.nom }}</td>
+										<td><img src="{{ asset('uploads/' ~ reservationpack.idpack.image) }}" alt="" width="100" height="100"></td>
+									
+
+									 <td style="margin-left:50%">
+                         {% if (reservationpack.etat == 'Yes')  %}
+                        <button type="button" class="btn btn-block btn-outline-success disabled">Payer</button>
+                        {%  else  %}
+                       <button type="button" class="btn btn-block btn-outline-danger disabled">Non Payer</button>
+                     {% endif %} 
+                  </td>
+
+										<td style="text-align : center">
+									  <a href="{{ path('app_reservationpack_show', {'id': reservationpack.id}) }}" class="btn btn-outline-info">Details</a>
+											<a href="{{ path('app_reservationpack_edit', {'id': reservationpack.id}) }}" class="btn btn-outline-warning">Modifier</a>
+									 {{ include('reservationpack/_delete_form.html.twig') }}
+                  	</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="7">no records found</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+  
+
+{% endblock %}
+
+
+
+
+
+
+
+

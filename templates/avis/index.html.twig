@@ -1,0 +1,121 @@
+{% extends 'front_base.html.twig' %}
+
+{% block main %}
+
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-archive"></i>
+				Avis</h1>
+			
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="">Avis</a>
+			</li>
+		</ul>
+
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="p-2">
+								<h1>Avis
+								</h1>
+							</div>
+
+							<div class="ml-auto p-2">
+								<a class="btn btn-outline-danger " href="{{ path('app_avis_new') }}"> Ajouter</a>
+							</div>
+
+						</div>
+													<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#sampleTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style> 
+<input id="myInput" type="text" placeholder="Recherche..">
+<br><br>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<thead>
+								<tr>
+                                    <th>Rating</th>
+                                    <th>Utilisateur</th>
+                                    <th>Description</th>
+									<th style="text-align : center">actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for avi in avis %}
+									<tr>
+
+                                        <td>{{ avi.rating }}</td>
+                                        <td>{{ avi.idUser }}</td>
+                                        <td>{{ avi.descriptionavis }}</td>
+
+
+										<td style="text-align : center">
+											<a class="btn btn-outline-success " href="{{ path('app_avis_show', {'idavis': avi.idavis}) }}">Afficher</a>
+											<a class="btn btn-outline-warning " href="{{ path('app_avis_edit', {'idavis': avi.idavis}) }}">Modifier</a>
+										
+
+										</td>
+									</tr>
+								{% else %}
+									<tr>
+										<td colspan="7">no records found</td>
+									</tr>
+								{% endfor %}
+
+							</tbody>
+						</table>
+						
+						
+
+
+					</div>
+					{{ knp_pagination_render(avis, null, {}, {
+   							'align': 'center',
+   							'size': 'large',
+  							 'rounded': true,
+						}) }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+{% endblock %}

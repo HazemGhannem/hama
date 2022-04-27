@@ -1,0 +1,86 @@
+{% extends 'back_base.html.twig' %}
+
+
+{% block main %}
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-tasks"></i>
+				Utilisateur</h1>
+			<p>Utilisateur Dashboard</p>
+
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item">
+				<i class="fa fa-home fa-lg"></i>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="/utilisateur/">Utilisateur</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="tile">
+				<div class="tile-body">
+					<div class="table-responsive">
+						<div class="d-flex">
+							<div class="mr-auto p-2">
+								<h1>Utilisateur
+								</h1>
+							</div>
+							<div class="p-2">
+								<a class="btn btn-outline-warning " href="{{ path('app_utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
+							</div>
+							<div class="p-2">
+								{{ include('utilisateur/_delete_form.html.twig') }}</div>
+						</div>
+
+
+						<table class="table table-hover table-bordered" id="sampleTable">
+							<tbody>
+								<tr>
+									<th>Image</th>
+									<td><img src="{{ asset('uploads/' ~ utilisateur.image) }}" alt="" width="100" height="100"></td>
+								</tr>
+                                <tr>
+									<th>Id</th>
+									<td>{{ utilisateur.id }}</td>
+								</tr>
+								<tr>
+									<th>Nom</th>
+									<td>{{ utilisateur.nom }}</td>
+								</tr>
+								<tr>
+									<th>Prenom</th>
+									<td>{{ utilisateur.prenom }}</td>
+								</tr>
+								<tr>
+									<th>Email</th>
+									<td>{{ utilisateur.email }}</td>
+								</tr>
+
+								<tr>
+									<th>Tel</th>
+									<td>{{ utilisateur.tel }}</td>
+								</tr>
+
+                                <tr>
+									<th>Role</th>
+									<td>{{ utilisateur.role }}</td>
+								</tr>
+
+							</tbody>
+						</table>
+
+						<a class="btn btn-secondary" href="{{ path('app_utilisateur_index') }}">back to list</a>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
